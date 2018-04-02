@@ -1,0 +1,218 @@
+/*
+ Theme Name:   Storefront Child
+ Description:  Storefront Child Theme
+ Author:       Mehul Prajapati
+ Author URI:   http://example.com
+ Template:     storefront
+ Version:      1.0.0
+ Text Domain:  storefront-child
+*/
+
+.cont_btn{
+    position: relative;
+    margin-top: -23px;
+    float: right;
+}
+select.occasion-select-section,#complimentary_gift_message_select {
+    padding-right: 8%;
+}
+
+div.product-thumb{
+    position:relative;
+}
+
+h3.popover-title {
+    background: rgb(0, 169, 80);
+    color: white;
+    font-weight: 600;
+    text-transform: none;
+}
+
+div.message_detail{
+    /*display:none;*/
+}
+
+div.popover.fade.right.in{
+    width: 250px;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #BB0064 !important;
+    background-color: #FFF;
+    background-image: url(images/radio-icon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    margin-right: 0;
+    padding: 0;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    border-radius: 15px;
+}
+
+input[type='radio']:checked:after {
+    width: 8px;
+    height: 8px;
+    border-radius: 13px;
+    top: -2px;
+    left: 2px;
+    position: relative;
+    background-color: #BB0064;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #BB0064;
+}
+
+input[type='radio']:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 15px;
+    top: -1px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #BB0064;
+}
+.continue_delivery{
+    display: block;
+    margin: -26px auto 0px auto;
+    background-color: #00a950;
+    padding: 12px 50px;
+    float:right;
+}
+
+
+.message_section .message_section-or{
+    font-weight: 700;
+    font-size: 20px;
+    margin: 8px 0px;
+    color: black;
+}
+
+.occasion_section{
+    background-color: whitesmoke;
+    padding: 30px;	
+}
+.message_section{
+
+    padding: 20px;
+}
+.occasion-select-section{
+    font-weight: 600;
+}
+.cart-message-heading{
+    margin: 10px 0px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+span.page-sub-heading{
+    margin-top: 25px;
+    display: block;
+}
+p.prod-cats-titles{
+    margin-bottom: 0;
+    color: #9a008b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 15px;
+}
+
+p.prod-title{
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: 600;
+    color: black;
+}
+
+p.prod-price{
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+}
+
+p.prod-price > input[type = "checkbox"]{
+    visibility: hidden;
+}
+
+input[type="checkbox"], input[type="checkbox"]:focus {
+    border-radius: 2px !important;
+    width: 14px !important;
+    height: 14px !important;
+    border: 2px solid #B91771 !important;
+
+}
+
+input[type="checkbox"]:checked:before {
+    content: "\f00c";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    left: -2px;
+    font-family: FontAwesome;
+    text-align: right;
+    top: -2px;
+    color: #B91768;
+    text-shadow: -1px 0px 0px white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+button.btn.btn-lg.btn-success.information-btn {
+    border: none;
+    border-radius: 35px;
+    text-transform: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: serif;
+    padding: 6px 11px;
+    background-color: #00a950;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+/*#complimentary_gift_message_select option{
+    display:none;
+}*/
+
+#complimentary_gift_message_select:nth-child(1){
+    display:block;
+}
+.product-thumb > img{
+    /*height: 275px;*/
+    margin: 0 auto;
+}
+.popover{width:100%}
+
+@media(max-width:767px){
+    button.btn.btn-lg.btn-success.information-btn{position:inherit; left:50%}
+    input[type="checkbox"]{float:none;display:inline-block !important;}
+    .occasion_section{padding:10px}
+}
+@media(max-width:960px){
+    .continue_delivery{
+        display: block;
+        margin: 25px 0;
+        float:none;
+    }
+}
+@media(max-width:991px){
+    .cont_btn{
+        right:inherit; 
+        position:relative;
+        margin-top: 20px;
+    }
+}

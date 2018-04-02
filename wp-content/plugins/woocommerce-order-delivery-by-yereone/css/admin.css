@@ -1,0 +1,23 @@
+table#week-day-list.form-table{
+	max-width: 700px; 
+	display: block; 
+	padding: 15px; 
+	border: 2px dotted; 
+	border-radius: 20px; 
+	background: white;
+}
+
+table#specific_delivery_dates_list.form-table{
+	max-width: 1020px; 
+	display: table-cell; 
+	padding: 15px; 
+	border: 2px dotted; 
+	border-radius: 20px; 
+	background: white;
+}
+
+#specific_delivery_dates_list span.dashicons.dashicons-yes {
+	color: green;
+	font-size: 25px;
+	line-height: 18px;
+}

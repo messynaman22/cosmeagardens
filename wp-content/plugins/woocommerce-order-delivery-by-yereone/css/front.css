@@ -1,0 +1,53 @@
+.modal-backdrop.fade.in {
+	display: none !important;
+}
+
+div#datepickerModal.fade.in{
+	background: rgba(0, 0, 0, 0.35);
+}
+
+div#datepickerModal.fade.in > div.modal-dialog{
+	top: 100px;
+}
+
+div#datepickerModal.fade.in > div.modal-dialog > div.modal-content > div.modal-body{
+    min-height: 300px;	
+}
+
+input.datepicker_modal_open {
+	width: 100%;
+	text-align: left;
+	background: white;
+	border: 1px solid #BCBCBC;
+	color: #333 !important;
+    padding: 10px;
+	height: 40px;
+    background-image: url('../media/calendar-img.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-x: 99%;
+}
+
+.gldp-default{
+	top:0px !important;
+	left:0px !important;
+}
+
+.table-success, .table-success>td, .table-success>th {
+	background-color: #33B56C;
+	color:#fff;
+}
+
+.table-active, .table-active>td, .table-active>th {
+	background-color: #f5f5f5;
+}
+
+div.core.border.wed > span, div.core.border.thu > span, div.core.border.fri > span, div.core.border.sat > span, div.core.border.sun > span, div.core.border.mon > span, div.core.border.tue > span, div.core.border.special > span, div.core.border.outday > span, div.core.border.selected > span, div.core.border.today > span, div.core.border.noday >span {
+	display: block;
+	text-transform: capitalize;
+}
+
+div.core.border.wed, div.core.border.thu, div.core.border.fri, div.core.border.sat, div.core.border.sun, div.core.border.mon, div.core.border.tue, div.core.border.special, div.core.border.outday, div.core.border.selected, div.core.border.today, div.core.border.noday {
+    line-height: 18px !important;
+    height: 41px !important;
+}
