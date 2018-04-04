@@ -19,7 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+<?php echo et_get_block(24987);?>
 <?php do_action( 'storefront_before_site' ); ?>
 
 <div id="page" class="hfeed site">
