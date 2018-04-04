@@ -47,7 +47,7 @@ if (!class_exists('Yc_Order_Delivery_Date')) {
         }
 
         public function calculate_order_total_price() {
-            session_start();
+            //session_start();
             global $woocommerce;
 
             //$date = $_SESSION['delivery_date'];

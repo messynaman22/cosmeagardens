@@ -2,10 +2,16 @@
 add_action('wp_enqueue_scripts', 'child_theme_enqueue_styles', 101);
 define('ETHEME_DOMAIN', 'cosmeagardens');
 function child_theme_enqueue_styles() {
+	
+	
     wp_enqueue_style('bootstrap-css', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css');
     wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array('jquery'));
     wp_enqueue_script('custom-js');
     wp_localize_script('custom-js', 'customJS', array('ajaxurl' => admin_url('admin-ajax.php')));
+	if ( is_child_theme() ) {
+				$child_theme = wp_get_theme( get_stylesheet() );
+				wp_enqueue_style( 'storefront-child-style', get_stylesheet_uri(), array(), $child_theme->get( 'Version' ) );
+			}
 }
 
 function remove_loop_button() {
@@ -157,7 +163,7 @@ function wc_custom_cart_redirect() {
 add_action('template_redirect', 'add_product_to_cart');
 
 function add_product_to_cart() {
-    session_start();
+    //session_start();
 
     $product_id_ses = $_SESSION['curr_item'];
 
@@ -372,4 +378,369 @@ if(!function_exists('et_get_block')) {
         return $output;
    }
 }
+if (!function_exists('etheme_top_links')) {
 
+	function etheme_top_links($args = array()) {
+		extract(shortcode_atts(array(
+		'popups' => true
+		), $args));
+        ?>
+        <ul class="links">
+           
+            
+                <?php if (is_user_logged_in()) : ?>
+                    <?php if (class_exists('Woocommerce')): ?> 
+                        <li class="my-account-link"><a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"><?php _e('My Account', ETHEME_DOMAIN); ?></a></li>
+                    <?php endif; ?>
+                    <li class="logout-link"><a href="<?php echo wp_logout_url(home_url()); ?>"><?php _e('Logout', ETHEME_DOMAIN); ?></a></li>
+                <?php else : ?>
+                    <?php
+                    $reg_id = etheme_tpl2id('et-registration.php');
+                    $reg_url = get_permalink($reg_id);
+                    ?>    
+                    <?php if (class_exists('Woocommerce')): ?>
+                        <li class="login-link">
+                            <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"><?php _e('Log In', ETHEME_DOMAIN); ?></a>
+                            <?php if ($popups) : ?>
+                                <div class="login-popup">
+                                    <div class="popup-title">
+                                        <span><?php _e('Login Form', ETHEME_DOMAIN); ?></span>
+                                    </div>
+
+                                    <form method="post" class="login" action="<?php echo get_the_permalink(get_option('woocommerce_myaccount_page_id')); ?>">
+
+                                        <?php do_action('woocommerce_login_form_start'); ?>
+
+                                        <p class="form-row form-row-first">
+                                            <label for="username"><?php _e('Enter Your E-mail Address', 'woocommerce'); ?> <span class="required">*</span></label>
+                                            <input type="text" class="input-text" name="username" id="username" />
+                                        </p>
+                                        <p class="form-row form-row-last">
+                                            <label for="password"><?php _e('Enter Your Password', 'woocommerce'); ?> <span class="required">*</span></label>
+                                            <input class="input-text" type="password" name="password" id="password" />
+                                        </p>
+                                        
+<div class="clear"></div>
+                                        <p class="form-row">
+                                            <?php wp_nonce_field('woocommerce-login'); ?>
+                                            <input type="submit" class="button" name="login" value="<?php _e('Login', 'woocommerce'); ?>" />
+                                        </p>
+<p><a href="<?php echo esc_url( wc_lostpassword_url() ); ?>"><?php _e('Forgot your password?', ETHEME_DOMAIN); ?></span></a></p>
+<p class="text-center"><strong>&mdash; Or sign in with &mdash;</strong></p>
+                                        <?php do_action('woocommerce_login_form'); ?>
+                                        <div class="clear"></div>
+
+                                        <?php do_action('woocommerce_login_form_end'); ?>
+
+                                    </form>
+
+                                </div>
+                            <?php endif; ?>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (!empty($reg_id)): ?>
+                        <li class="register-link">
+                            <a href="<?php echo $reg_url; ?>"><?php _e('Create Account', ETHEME_DOMAIN); ?></a>
+                            <?php if ($popups) : ?>
+                                <div class="register-popup">
+                                    <div class="popup-title">
+                                        <span><?php _e('Register Form', ETHEME_DOMAIN); ?></span>
+                                    </div>
+                                    <?php et_register_form(); ?>
+                                    <h2>Benefits of Registration</h2>
+                                    <ul>
+                                    <li>Fast, secure checkout</li>
+                                    <li>Earn award points</li>
+                                    <li>Exclusive promotions &amp; offers</li>
+                                    <li>Remember important dates</li>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
+           
+        </ul>
+        <?php
+        wp_nav_menu(array(
+        'theme_location' => '',
+        'menu' => 'top bar menu',
+        'container' => 'div',
+        'container_class' => 'menu-top-bar-menu-container',
+        'container_id' => '',
+        'menu_class' => 'links',
+        'menu_id' => '',
+        'echo' => true,
+        'fallback_cb' => 'wp_page_menu',
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth' => 0,
+        'walker' => '',
+        ));
+        ?>
+        <?php
+	}
+
+}
+function etheme_get_option($key, $setting = null,$doshortcode = true) {
+  	global $options;
+    if ( function_exists( 'ot_get_option' ) ) {
+    	if($doshortcode && is_string(ot_get_option( $key,$setting ))){
+        	$result = do_shortcode(ot_get_option( $key,$setting ));
+    	}else{
+        	$result =  ot_get_option( $key,$setting );
+    	}
+    	return apply_filters('et_option_'.$key, $result);
+    }
+    
+}
+if(!function_exists('et_get_mobile_menu')) {
+	function et_get_mobile_menu($menu_id = 'mobile-menu') {
+
+        $custom_menu = etheme_get_custom_field('custom_nav');
+        $one_page_menu = '';
+        if(etheme_get_custom_field('one_page')) $one_page_menu = ' one-page-menu';
+
+        if(!empty($custom_menu) && $custom_menu != '') {
+            $output = false;
+            $output = wp_cache_get( $custom_menu, 'et_get_mobile_menu' );
+            if ( !$output ) {
+                ob_start(); 
+                
+                wp_nav_menu(array(
+                    'menu' => $custom_menu,
+                    'before' => '',
+                    'container_class' => 'menu-mobile-container'.$one_page_menu,
+                    'after' => '',
+                    'link_before' => '',
+                    'link_after' => '',
+                    'depth' => 4,
+                    'fallback_cb' => false,
+                    'walker' => new Et_Navigation_Mobile
+                ));
+                
+                $output = ob_get_contents();
+                ob_end_clean();
+                
+                wp_cache_add( $custom_menu, $output, 'et_get_mobile_menu' );
+            }
+            
+            echo $output;
+            return;
+        }
+
+		if ( has_nav_menu( $menu_id ) ) {
+	    	$output = false;
+	    	$output = wp_cache_get( $menu_id, 'et_get_mobile_menu' );
+            
+		    if ( !$output ) {
+			    ob_start(); 
+			    
+				wp_nav_menu(array(
+                    'container_class' => $one_page_menu,
+					'theme_location' => 'mobile-menu',
+                    'walker' => new Et_Navigation_Mobile
+				)); 
+				
+				$output = ob_get_contents();
+				ob_end_clean();
+				
+		        wp_cache_add( $menu_id, $output, 'et_get_mobile_menu' );
+		    }
+		    
+	        echo $output;
+		} else {
+			?>
+				<br>
+				<h4 class="a-center">Set your main menu in <em>Appearance &gt; Menus</em></h4>
+			<?php
+		}
+	}
+}
+
+
+if(!function_exists('et_get_favicon')) {
+    function et_get_favicon() {
+        $icon = etheme_get_option('favicon');
+        if($icon == '') {
+            $icon = get_template_directory_uri().'/images/favicon.ico'; 
+        }
+        return $icon;
+    }
+}
+
+
+if(!function_exists('et_get_menus_options')) {
+    function et_get_menus_options() {
+        $menus = array();
+        $menus[] = array("label"=>"Default","value"=>"");
+        $nav_terms = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+        foreach ( $nav_terms as $obj ) {
+            $menus[] = array("label" => $obj->name ,"value" => $obj->slug);
+        }
+        return $menus;
+    }
+}
+// **********************************************************************// 
+// ! Search form 
+// **********************************************************************// 
+
+if(!function_exists('etheme_search_form')) {
+    function etheme_search_form() {
+    	?>
+            <div class="header-search ">
+                
+                    <div class="et-search-trigger search-dropdown">
+                        <div><i class="fa fa-search"></i> <span class="search_label">Search</span></div>
+                        <form action="https://www.cosmeagardens.com/" id="searchform" class="hide-input" method="get"> 
+
+		<div class="form-horizontal modal-form">
+
+			<div class="form-group has-border">
+
+				<div class="col-xs-12">
+
+					<input placeholder="Search by Item number or Keyword" class="form-control" name="s" id="s" type="text">
+
+					<input name="post_type" value="product" type="hidden">
+
+				</div>
+
+			</div>
+
+			<div class="form-group form-button">
+
+				<button type="submit" class="btn medium-btn btn-black" style="padding:0 !important">Go</button>
+
+			</div>
+
+		</div>
+
+	</form>
+                    </div>
+               
+            </div>
+        <?php 
+    }
+}
+
+
+
+
+/**
+ * undocumented
+ */
+function et_is_blog () {
+	global  $post;
+	$posttype = get_post_type($post );
+	return ( ((is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag())) && ( $posttype == 'post')  ) ? true : false ;
+}
+ 
+ 
+function etheme_get_custom_field($field, $postid = false) {
+	global $post;
+	if ( null === $post && !$postid) return FALSE;
+	if(!$postid) {
+		$postid = $post->ID;
+	} 
+	$page_for_posts = get_option( 'page_for_posts' );
+	$custom_field = get_post_meta($postid, $field, true);
+	
+	if(is_array($custom_field)) {
+		$custom_field = $custom_field[0];
+	}
+	if ( $custom_field ) {
+		return stripslashes( wp_kses_decode_entities( $custom_field ) );
+	}
+	else {
+		return FALSE;
+	}
+}
+function etheme_custom_field($field) {
+	echo etheme_get_custom_field($field);
+}
+
+if (!function_exists('etheme_logo')) {
+
+	function etheme_logo($fixed_header = false) {
+		$logoimg = '';
+		if ($logoimg == '') {
+			$logoimg = etheme_get_option('logo');
+		}
+
+		$custom_logo = '';
+
+		if ($custom_logo != '') {
+			$logoimg = $custom_logo;
+		}
+
+		if ($fixed_header) {
+			$logoimg = etheme_get_option('logo_fixed');
+		}
+        ?>
+        <?php if ($logoimg): ?>
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo $logoimg ?>" alt="<?php bloginfo('description'); ?>" /></a>
+        <?php else: ?>
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo.png'; ?>" alt="<?php bloginfo('name'); ?>"></a>
+        <?php
+        endif;
+        do_action('etheme_after_logo');
+	}
+
+}
+if(!function_exists('etheme_top_cart')) {
+	function etheme_top_cart($load_cart = false) {
+        global $woocommerce;
+		?>
+		
+			<div class="shopping-container" <?php if(etheme_get_option('favicon_badge')) echo 'data-fav-badge="enable"' ?>>
+				<div class="shopping-cart-widget" id='basket'>
+					<a href="<?php echo esc_url($woocommerce->cart->get_cart_url()); ?>" class="cart-summ" data-items-count="<?php echo $woocommerce->cart->cart_contents_count; ?>">
+					<div class="cart-bag">
+						<i class='ico-sum'></i>
+						<?php et_cart_number(); ?>
+					</div>
+					
+					<?php et_cart_total(); ?>
+						
+					</a>
+				</div>
+
+				<div class="cart-popup-container">
+					<div class="cart-popup">
+						<?php 
+							if($load_cart) {
+								woocommerce_mini_cart();
+							} else {
+								echo '<div class="widget_shopping_cart_content"></div>';
+							}
+						?>
+					</div>
+				</div>
+			</div>
+			
+
+    <?php
+	}
+}
+if(!function_exists('et_cart_number')) {
+	function et_cart_number() {
+        global $woocommerce;
+        ?>
+			<span class="badge-number"><?php echo $woocommerce->cart->cart_contents_count; ?></span>
+        <?php
+	}
+}
+if(!function_exists('et_cart_total')) {
+	function et_cart_total() {
+        global $woocommerce;
+        ?>
+			<span class='shop-text'><?php _e('Shopping Cart', ETHEME_DOMAIN) ?>: <span class="total"><?php echo $woocommerce->cart->get_cart_subtotal(); ?></span></span> 
+        <?php
+	}
+}
+
+add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+
+function my_deregister_styles() {
+    wp_deregister_style( get_stylesheet_directory_uri().'/style.css' );
+}
