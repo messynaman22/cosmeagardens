@@ -164,9 +164,9 @@ add_action('template_redirect', 'add_product_to_cart');
 
 function add_product_to_cart() {
     //session_start();
-
+if(isset($_SESSION['curr_item'])){
     $product_id_ses = $_SESSION['curr_item'];
-
+}
     if (isset($_POST['is_gifts_page'])) {
 
         $items = WC()->cart->get_cart();

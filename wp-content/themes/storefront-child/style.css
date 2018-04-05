@@ -482,7 +482,7 @@ span.logo_sub_text_phone.green_logo_sub_text_phone {
 
 .navbar-right {
     display: table-cell;
-    float: none;
+    float: none !important;
     vertical-align: middle;
 }
 .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse
@@ -492,7 +492,7 @@ span.logo_sub_text_phone.green_logo_sub_text_phone {
     padding: 0;
 }
 .navbar-right .navbar-right {
-    float: right;
+    float: right !important;
     display: table-cell;
     padding: 0;
     vertical-align: middle;
@@ -938,6 +938,7 @@ input[type=submit]:focus,
 }
 .header-type-10 .navbar-header .top-links {
     padding-right: 20px;
+	padding-top:11px;
 }
 span.need-it-today {
     color: #33b56c;
@@ -1039,9 +1040,19 @@ li.menu-item > a::before {
     z-index: 1;
 }
 
-.internalional_delivery_block{display:none;}
-
-		
+.internalional_delivery_flag_block_text{font-size:17px}
+.header-type-10 .menu-wrapper .navbar-collapse {
+    float: left;
+    width: auto;
+}
+.header-type-10 .menu-wrapper .languages-area {
+    padding: 9px 0 0;
+	float:right;
+}
+div.internalional_delivery_block {
+    margin-right: 45px;
+}
+#menu-top-bar-menu li:last-child:after{display:none}
 @media(min-width:1200px){
 .container {
     width: 1170px !important;

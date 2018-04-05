@@ -216,7 +216,7 @@
                                
 
                                 <div class="internalional_delivery_block">
-                                    <p class="internalional_delivery_flag_block_text"><a style="color:#fff;" href="<?php echo get_permalink(22553);?>">International Delivery</a></p>
+                                    <p class="internalional_delivery_flag_block_text"><a style="color:#fff;" href="<?php //echo get_permalink(22553);?>">International Delivery</a></p>
                                     
                                     <div class="clear"></div>
                                 </div>
@@ -234,37 +234,7 @@
    </div></div></div></div>
    
 <div id="page" class="hfeed site">
-	<?php do_action( 'storefront_before_header' ); ?>
 
-	<header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-		<div class="col-full">
-
-			<?php
-			/**
-			 * Functions hooked into storefront_header action
-			 *
-			 * @hooked storefront_skip_links                       - 0
-			 * @hooked storefront_social_icons                     - 10
-			 * @hooked storefront_site_branding                    - 20
-			 * @hooked storefront_secondary_navigation             - 30
-			 * @hooked storefront_product_search                   - 40
-			 * @hooked storefront_primary_navigation_wrapper       - 42
-			 * @hooked storefront_primary_navigation               - 50
-			 * @hooked storefront_header_cart                      - 60
-			 * @hooked storefront_primary_navigation_wrapper_close - 68
-			 */
-			do_action( 'storefront_header' ); ?>
-
-		</div>
-	</header><!-- #masthead -->
-
-	<?php
-	/**
-	 * Functions hooked in to storefront_before_content
-	 *
-	 * @hooked storefront_header_widget_region - 10
-	 */
-	do_action( 'storefront_before_content' ); ?>
 
 	<div id="content" class="site-content" tabindex="-1">
 		<div class="col-full">
