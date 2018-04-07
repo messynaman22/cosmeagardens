@@ -16,6 +16,9 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php wp_head(); ?>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/colorbox.css" />
+<script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/colorbox-min.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/wp-colorbox.js"></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -231,18 +234,6 @@
 </div>
 
           
-   </div></div></div></div>
+
    
-<div id="page" class="hfeed site">
 
-
-	<div id="content" class="site-content" tabindex="-1">
-		<div class="col-full">
-
-		<?php
-		/**
-		 * Functions hooked in to storefront_content_top
-		 *
-		 * @hooked woocommerce_breadcrumb - 10
-		 */
-		do_action( 'storefront_content_top' );

@@ -744,3 +744,208 @@ add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
 function my_deregister_styles() {
     wp_deregister_style( get_stylesheet_directory_uri().'/style.css' );
 }
+if (!function_exists('checkout_footer')) {
+
+	function checkout_footer($checkout) {
+
+		$args = array(
+		'post_type' => 'testimonial',
+		'posts_per_page' => $count,
+		'order' => 'ASC',
+		);
+		$query = new WP_Query;
+
+		$testimonials = $query->query($args);
+        ?>
+        <div class="testimonials_container">
+            <h2>Customer reviews</h2>
+            <div id="text-carousel" class="carousel slide" data-ride="carousel">
+                <!--<ol class="carousel-indicators">
+                    <li data-target="#text-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#text-carousel" data-slide-to="1"></li>
+                    <li data-target="#text-carousel" data-slide-to="2"></li>
+                </ol>-->
+                <!-- Wrapper for slides -->
+
+                <div class="carousel-inner">
+
+                    <?php
+                    $active = true;
+                    foreach ($testimonials as $testimonial) :
+                    if ($active) {
+                            ?>
+                            <div class="item active">
+                                <div class="carousel-content">
+                                    <p><?php echo $testimonial->post_content; ?> - <?php echo $testimonial->post_title; ?></p>
+                                </div>
+                                <span class="perfect_service">Perfect service! <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></span>
+                            </div>
+                            <?php
+                            $active = false;
+                    } else {
+                            ?>
+                            <div class="item">
+                                <div class="carousel-content">
+                                    <p><?php echo $testimonial->post_content; ?> - <?php echo $testimonial->post_title; ?></p>
+                                </div>
+                                <span class="perfect_service">Perfect service! <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></span>
+                            </div>
+                            <?php
+                    };
+                    endforeach;
+                    ?>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/feefo.png" class="feefo">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <style>
+            .green-link{
+                color: #33B56C !important;
+            }
+            .links_row a{
+                font-size: 14px;
+                font-weight: 600;
+                color: #878787;
+            }
+            .carousel-content {
+                color:black;
+                display:flex;
+                align-items:center;
+            }
+
+            #text-carousel {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .carousel-inner>.item{
+
+            }
+
+            .carousel-indicators .active {
+                background-color:#33B56C;
+            }
+            .carousel-indicators li {
+                background-color:#6C736F;
+            }
+
+
+
+            img.guarantee{
+                padding: 17px 0px;
+            }
+            img.testimonials{
+                position: absolute;
+                bottom: 0;
+                right: 0px;
+                background-color: white;
+                border-radius: 220px;
+                width: 80px;
+                height: 80px;
+            }
+        </style>
+        <script>
+
+        jQuery(document).ready(function () {
+        	jQuery('#shipping_country_field').addClass("form-row-first");
+        	jQuery('#shipping_state_field').addClass("form-row-last");
+
+        	jQuery('#shipping_country').click(function () {
+        		jQuery('#shipping_state_field').removeClass("form-row-first");
+        	});
+        	jQuery('#billing_country').click(function () {
+        		jQuery('#billing_state_field').removeClass("form-row-first");
+        	});
+        });
+
+        jQuery('#shipping_first_name').keypress(function (e) {
+        	checkKeyPressForLetters(e);
+        });
+        jQuery('#shipping_last_name').keypress(function (e) {
+        	checkKeyPressForLetters(e);
+        });
+        jQuery('#shipping_address_1').keypress(function (e) {
+        	checkKeyPressForNumbersAndLetters(e);
+        });
+        jQuery('#shipping_address_2').keypress(function (e) {
+        	checkKeyPressForNumbersAndLetters(e);
+        });
+        jQuery('#shipping_city').keypress(function (e) {
+        	checkKeyPressForNumbersAndLetters(e);
+        });
+        jQuery('#shipping_phone').keypress(function (e) {
+        	checkKeyPressForNumbers(e);
+        });
+        jQuery('#shipping_phone-2').keypress(function (e) {
+        	checkKeyPressForNumbers(e);
+        });
+
+
+        jQuery('#billing_first_name').keypress(function (e) {
+        	checkKeyPressForLetters(e);
+        });
+        jQuery('#billing_last_name').keypress(function (e) {
+        	checkKeyPressForLetters(e);
+        });
+        jQuery('#billing_address_1').keypress(function (e) {
+        	checkKeyPressForNumbersAndLetters(e);
+        });
+        jQuery('#billing_address_2').keypress(function (e) {
+        	checkKeyPressForNumbersAndLetters(e);
+        });
+        jQuery('#billing_city').keypress(function (e) {
+        	checkKeyPressForNumbersAndLetters(e);
+        });
+        jQuery('#billing_phone').keypress(function (e) {
+        	checkKeyPressForNumbers(e);
+        });
+        jQuery('#billing_phone-2').keypress(function (e) {
+        	checkKeyPressForNumbers(e);
+        });
+
+        function checkKeyPressForNumbersAndLetters(e) {
+        	var regex = new RegExp("^[a-zA-Z0-9 ]+$");
+        	var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        	if (regex.test(str)) {
+        		return true;
+        	}
+
+        	//e.preventDefault();
+        	return false;
+        }
+
+        function checkKeyPressForLetters(e) {
+        	var regex = new RegExp("^[a-zA-Z ]+$");
+        	var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        	if (regex.test(str)) {
+        		return true;
+        	}
+
+        	//e.preventDefault();
+        	return false;
+        }
+
+        function checkKeyPressForNumbers(e) {
+        	var regex = new RegExp("^[0-9+]+$");
+        	var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        	if (regex.test(str)) {
+        		return true;
+        	}
+
+        	//e.preventDefault();
+        	return false;
+        }
+        jQuery('#shipping_state, #billing_state').attr('disabled','true');
+        //jQuery('#order_surprise').attr('checked','checked');
+		jQuery( '.wpb_wrapper p:empty' ).remove();
+        </script>
+        <?php
+        return $checkout;
+	}
+
+}

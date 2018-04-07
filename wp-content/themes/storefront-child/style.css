@@ -1053,6 +1053,369 @@ div.internalional_delivery_block {
     margin-right: 45px;
 }
 #menu-top-bar-menu li:last-child:after{display:none}
+.bg_light_pink {
+    background: #fff5f4;
+	float:left; width:100%;
+}
+.subscribe_form_backend {
+    box-shadow: 0 -2px 10px 0 #ccc;
+}
+.news_letter {
+    background: #fff url("img/border.png") repeat-x scroll center bottom;
+    padding-bottom: 30px;
+    padding-top: 35px;
+}
+.mc4wp-form {
+    margin: 0;
+    padding: 0;
+	text-align: center;
+}
+.connect_text {
+    font-family: Lato;
+    float: left;
+    font-size: 24px;
+}
+.social_icon_connect {
+    float: left;
+    width: 50%;
+}
+.social_icon_connect a {
+    background: #f3f3f3 none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #505050;
+    display: inline-block;
+    font-size: 20px;
+    height: 45px;
+    padding-top: 5px;
+    text-align: center;
+    width: 45px;
+	transition: color 0.25s ease 0s;
+}
+.social_icon_connect a .fa {
+    border: 1px solid #e7e7e7;
+    border-radius: 50%;
+    height: 35px;
+    padding-top: 8px;
+    width: 35px;
+}
+.social_icon_connect a:hover {
+    background: #a72d9a none repeat scroll 0 0;
+    color: #f2f2f2;
+}
+
+.mc4wp-form-fields label {
+    font-size: 24px;
+    margin-right: 35px;
+	font-family: lato;
+}
+.mc4wp-form-fields input, .mc4wp-form-fields label {
+    float: left;
+}
+.mc4wp-form input[type="email"] {
+    height: 36px;
+    margin: 0 auto;
+    padding: 0 8px;
+    width: 222px;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], input[type="search"] {
+    border: 1px solid #d5d5d5;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+	background:none;
+}
+hr.active, .btn.filled.active, .header-type-9 .top-bar, .shopping-container .btn.border-grey:hover, .bottom-btn .btn.btn-black:hover, #searchModal .large-h::after, #searchModal .btn-black, .details-tools .btn-black:hover, .product-information .cart button[type="submit"]:hover, .all-fontAwesome .fa-hover a:hover, .all-fontAwesome .fa-hover a:hover span, .header-type-12 .shopping-container, .portfolio-filters li .btn.active, .progress-bar > div, .wp-picture .zoom > i, .swiper-slide .zoom > i, .portfolio-image .zoom > i, .thumbnails-x .zoom > i, .teaser_grid_container .post-thumb .zoom > i, .teaser-box h3::after, .mc4wp-form input[type="submit"], .ui-slider .ui-slider-handle, .et-tooltip:hover, .btn-active, .rev_slider_wrapper .type-label-2, .menu-social-icons.larger li a:hover, .menu-social-icons.larger li a:focus, .ui-slider .ui-slider-handle:hover, .category-1 .widget_product_categories .widget-title, .category-1 .widget_product_categories .widgettitle, .category-1 .widget_nav_menu .widget-title, .menu-social-icons.larger.white li a:hover, .type-label-2, .btn.filled:hover, .btn.filled:focus, .widget_shopping_cart .bottom-btn a:hover, .horizontal-break-alt::after, .price_slider_wrapper .price_slider_amount button:hover, .btn.btn-black:hover, .etheme_widget_search .button:hover, input[type="submit"]:hover, .project-navigation .prev-project a:hover, .project-navigation .next-project a:hover, .button:hover, .mfp-close:hover, .mfp-close:focus, .tabs.accordion .tab-title::before, #searchModal .btn-black:hover, .toggle-block.bordered .toggle-element > a::before, .place-order .button:hover, .cart-bag .ico-sum, .cart-bag .ico-sum::after, input[type="submit"]:focus, .button:focus, #order_review .place-order .button, .slider-active-button:hover, .slider-active-button.filled {
+    background-color: #33b56c;
+}
+.mc4wp-form input[type="submit"] {
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 0;
+    padding: 9px 28px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out 0s;
+    vertical-align: middle;
+}
+label{font-weight: 400;}
+.mobi-info-text {
+    padding-top: 30px;
+}
+.mobi-info-text, .morefooterbutton {
+    display: none;
+}
+.satisfaction_gurantee {
+    border-bottom: 1px solid #eecfe3;
+}
+.satisfaction_icons {
+    border-bottom: 1px solid #eecfe3;
+    border-right: 1px solid #eecfe3;
+    font-size: 16px;
+    min-height: 70px;
+    padding-bottom: 23px;
+    padding-left: 85px;
+    padding-top: 23px;
+}
+.satisfaction_guarantee .sprite2 {
+    background: rgba(0, 0, 0, 0) url("https://cosmeagardens.com/wp-content/uploads/2017/06/icon.png") repeat scroll -280px -3px;
+}
+.satisfaction_icons p {
+    line-height: 22px;
+    margin: 0;
+    padding: 0;
+}
+.satisfaction_icons {
+    border-bottom: 1px solid #eecfe3;
+    border-right: 1px solid #eecfe3;
+    font-size: 16px;
+    min-height: 70px;
+    padding-bottom: 23px;
+    padding-left: 85px;
+    padding-top: 23px;
+}
+.every_address .sprite3 {
+    background: rgba(0, 0, 0, 0) url("https://cosmeagardens.com/wp-content/uploads/2017/06/icon.png") repeat scroll -323px -3px;
+}
+.sprite4, .every_address .sprite3, .satisfaction_guarantee .sprite2 {
+    float: left;
+    height: 44px;
+    margin: 0 -74px;
+    width: 46px;
+}
+.satisfaction_icons.delivery_on_time {
+    border-bottom: medium none;
+}
+.satisfaction_icons {
+    border-bottom: 1px solid #eecfe3;
+    border-right: 1px solid #eecfe3;
+    font-size: 16px;
+    min-height: 70px;
+    padding-bottom: 23px;
+    padding-left: 85px;
+    padding-top: 23px;
+}
+
+.delivery_on_time .sprite4 {
+    background: rgba(0, 0, 0, 0) url("https://cosmeagardens.com/wp-content/uploads/2017/06/icon.png") repeat scroll -366px -3px;
+}
+
+
+.delivery_content_top {
+    margin-top: 30px;
+}
+
+.satisfaction_gurantee .cards {
+    border-left: 1px solid #eecfe3;
+    padding-bottom: 18px;
+    padding-top: 25px;
+}
+.delivery_content_left {
+    border-bottom: 1px solid #eecfe3;
+    padding-bottom: 30px;
+}
+.delivery_content_left, .delivery_flags, .subscribe_block_left {
+    float: left;
+}
+.delivery_content_bottom {
+    margin-top: 25px;
+}
+.delivery_text {
+    font-weight: 400;
+    margin-bottom: 0;
+    width: 100%;
+    float: left;
+    margin-top: -7px;
+}
+.sprite1 {
+    background: rgba(0, 0, 0, 0) url(" https://www.cosmeagardens.com/wp-content/uploads/2017/06/icon.png") repeat scroll -12px -46px;
+    float: left;
+    height: 44px;
+    width: 46px;
+}
+.satisfaction_gurantee .cards img {
+    height: auto;
+    width: 120px;
+}
+.satisfaction_gurantee .cards h2 {
+    font-size: 15px;
+    margin: 20px 0 10px;
+}
+.copyright_text {
+    background: #a11193 none repeat scroll 0 0;
+    color: #fff;
+}
+.copyright_text p {
+    color: #fff;
+    margin: 0;
+    padding: 20px 0;
+}
+.copyright_text .footer_bottom_links p {
+    text-align: right;
+}
+.copyright_text .footer_bottom_links p a {
+    color: #fff;
+    padding: 0 5px;
+}
+.widget{margin:0 !important}
+.widgettitle::after {
+    background: #a72d9a none repeat scroll 0 0;
+    height: 2px;
+    position: absolute;
+    top: 24px;
+    width: 30px;
+}
+.register-popup li::before, .widgettitle::after {
+    content: "";
+    left: 0;
+}
+.widget .widgettitle {
+    border: medium none;
+    color: #3c2e25;
+    margin-bottom: 15px;
+    position: relative;
+    text-transform: uppercase;
+	font-size: 16px;
+    line-height: 1em;
+    font-family: "Raleway",sans-serif important;
+    font-weight: 600;
+	padding: 0 0 10px;
+	text-align: left;
+	margin-top: 15px;
+}
+.widget_nav_menu li {
+    border-bottom: medium none;
+}
+.widget_nav_menu li {
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+
+li.menu-item > a::before {
+    bottom: 0;
+    top: 0;
+
+    border-right: 1px solid #fff;
+    content: " ";
+    left: 5px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.widget_nav_menu li a::before {
+    color: #009b49;
+    font-size: 14px;
+    margin: 3px 12px 0 23px;
+    content: ">";
+    display: inline-block;
+    height: 15px;
+    left: -23px;
+    position: absolute;
+    width: 1px;
+    z-index: 1;
+}
+.footer_text {
+    border-top: 1px solid #ddd;
+    padding-top: 25px;
+}
+.footer-text {
+    background: #f5f5f5 none repeat scroll 0 0;
+}
+.footer-text h2{
+margin-top:24px
+}
+.widget_nav_menu ul li::before{content:""}
+.widget_nav_menu .menu > li{padding:0 !important; border:none; margin:0;}
+.widget_nav_menu .menu > li > a {
+    color: #9a0085;
+    font-size: 14px;
+    padding: 2px 18px 5px 15px;
+	font-weight:600; 
+	display:block;
+}
+.custom_menu_footer p {
+    color: #9a0085;
+    font-size: 14px;
+    font-weight: 600;
+}
+.custom_menu_footer p a{font-weight:600}
+.custom_menu_footer .vc_row .vc_column-inner, .custom_menu_footer .vc_row .vc_wp_custommenu {
+    margin-bottom: 0 !important;
+}
+.custom_menu_footer {
+    margin-bottom: 25px;
+}
+.testimonials_container {
+    margin-bottom: 20px;
+    margin-top: -18px;
+}
+.testimonials_container h2 {
+    color: #980089;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    margin-top: 4px;
+    text-transform: inherit;
+}
+.carousel-inner > .item p::after {
+    bottom: 0;
+    color: #878787;
+    content: close-quote;
+    font-size: 60px;
+    position: absolute;
+    right: 0;
+}
+
+.carousel-inner > .item p::before {
+    color: #878787;
+    content: open-quote;
+    font-size: 60px;
+    left: 0;
+    position: absolute;
+    top: -13px;
+}
+.carousel-inner > .item p {
+    line-height: normal;
+    margin: 0;
+    min-height: inherit;
+    padding: 0 20px 0 28px;
+    width: 100%;
+	font-size:13px;
+}
+.perfect_service {
+    display: inline-block;
+    font-weight: 700;
+    padding-left: 28px;
+    padding-top: 10px;
+}
+.feefo {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+}
+#text-carousel {
+    height: auto;
+    position: relative;
+    width: 100%;
+}
+#text-carousel {
+    margin: 0;
+}
+.carousel-inner {
+    padding-bottom: 22px;
+}
+.perfect_service span {
+    color: #33b56c;
+}
+
 @media(min-width:1200px){
 .container {
     width: 1170px !important;
