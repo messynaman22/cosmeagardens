@@ -1442,3 +1442,6 @@ margin-top:24px
         margin-top: 20px;
     }
 }
+
+#shipping_address_1_field{display: none !important;}
+#shipping_postcode_field{display: none !important;}
