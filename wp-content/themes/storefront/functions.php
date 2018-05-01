@@ -69,6 +69,6 @@ if (version_compare(get_bloginfo('version'), '4.7.3', '>=') && ( is_admin() || i
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 function theme_enqueue_styles() {
-	wp_enqueue_style('child-style', get_stylesheet_uri(), array('bootstrap', 'parent-style'));
+	//wp_enqueue_style('child-style', get_stylesheet_uri(), array('bootstrap', 'parent-style'));
 	wp_enqueue_script('asddsa', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery'));
 }

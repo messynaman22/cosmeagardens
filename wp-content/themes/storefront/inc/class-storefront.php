@@ -27,7 +27,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 			add_action( 'after_setup_theme',          array( $this, 'setup' ) );
 			add_action( 'widgets_init',               array( $this, 'widgets_init' ) );
 			add_action( 'wp_enqueue_scripts',         array( $this, 'scripts' ),       10 );
-			add_action( 'wp_enqueue_scripts',         array( $this, 'child_scripts' ), 30 ); // After WooCommerce.
+			//add_action( 'wp_enqueue_scripts',         array( $this, 'child_scripts' ), 30 ); // After WooCommerce.
 			add_filter( 'body_class',                 array( $this, 'body_classes' ) );
 			add_filter( 'wp_page_menu_args',          array( $this, 'page_menu_args' ) );
 			add_filter( 'navigation_markup_template', array( $this, 'navigation_markup_template' ) );
